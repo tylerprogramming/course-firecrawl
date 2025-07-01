@@ -1,0 +1,6 @@
+summary_task:
+  description: >
+    Generate key action items, dramatic news points, and key takeaways and a very detailed summary from the search results {results}
+  expected_output: >
+    A key action items, dramatic news points, and key takeaways and a very detailed summary from the search results {results}
+  agent: summary_agent
