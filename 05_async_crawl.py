@@ -10,8 +10,8 @@ app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
 # Crawl a website:
 crawl_status = app.async_crawl_url(
   'https://docs.crewai.com/', 
-  limit=2, 
-  scrape_options=ScrapeOptions(formats=['markdown', 'html'])
+  limit=5, 
+  scrape_options=ScrapeOptions(formats=['markdown', 'html'], onlyMainContent=True)
 )
 
 print(crawl_status.id)
