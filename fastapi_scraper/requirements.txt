@@ -1,0 +1,26 @@
+# FastAPI and core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# FireCrawl
+firecrawl-py==0.0.18
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# HTTP client (if needed for testing)
+httpx==0.25.2
+
+# Development dependencies (optional)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+ruff==0.1.6
+
+# Production dependencies
+gunicorn==21.2.0
+
+# Optional: For better async performance
+aiofiles==23.2.1 
