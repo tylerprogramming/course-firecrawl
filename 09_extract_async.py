@@ -25,14 +25,5 @@ while True:
         break
     print(job_status.status)
     time.sleep(5)
-
-# print(job_status.data)
-# Example output:
-# id=None
-# status='completed'
-# expiresAt=datetime.datetime(...)
-# success=True
-# data=[{ ... }]
-# error=None
-# warning=None
-# sources=None
+    
+print(job_status.data)

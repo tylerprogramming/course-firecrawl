@@ -1,35 +1,39 @@
-from firecrawl import JsonConfig, FirecrawlApp
+from firecrawl import FirecrawlApp
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
+
+from openai import OpenAI
 
 load_dotenv()
 
 app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
 class ExtractSchema(BaseModel):
-    company_name: str
-    is_open_source: bool
-    supports_sso: bool
-    has_enterprise_plan: bool
-    supports_edge_functions: bool
-    supports_static_sites: bool
-    contact_email: str
-    has_github_integration: bool
-    documentation_url: str
-    pricing_url: str
-    popular_frameworks: list[str]
-
-json_config = JsonConfig(schema=ExtractSchema)
-
-llm_extraction_result = app.extract(
-    [
-        'https://docs.firecrawl.dev/*', 
-        'https://firecrawl.dev/', 
-        'https://www.ycombinator.com/companies/'
-    ], 
-    prompt='Extract the company mission, whether it supports SSO, whether it is open source, and whether it is in Y Combinator from the page.', 
-    schema=ExtractSchema.model_json_schema()
+    information: str
+    code_example: str
+    
+class ExtractList(BaseModel):
+    extracted: list[ExtractSchema]
+    
+results = app.extract(
+    urls=[
+        'https://docs.crewai.com/en/tools/database-data/weaviatevectorsearchtool', 
+        'https://docs.crewai.com/en/tools/database-data/qdrantvectorsearchtool'
+    ],
+    prompt='I need to get information from the websites and any code examples.  Only from the urls provided.',
+    schema=ExtractList.model_json_schema()
 )
 
-print(llm_extraction_result)
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+completion = client.chat.completions.create(
+  model="gpt-4.1",
+  messages=[
+    {"role": "developer", "content": "You are a helpful assistant."},
+    {"role": "user", "content": f"I need you to extract the information and give this into an ordered summary of that information as markdown.  It should find coding examples and all information.  Here is the information: {results}"}
+  ]
+)
+
+with open('summary.md', 'w') as f:
+    f.write(completion.choices[0].message.content)
