@@ -7,12 +7,11 @@ load_dotenv()
 # Initialize the client with your API key
 app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
 
-# Perform a basic search
 search_result = app.search(
-    query="latest openai news",
+    query="context engineering",
     limit=5,
-    scrape_options=ScrapeOptions(formats=["markdown", "links"]),
-    tbs="qdr:w"
+    tbs="qdr:d",
+    scrape_options=ScrapeOptions(formats=["markdown", "links"])
 )
 
 # Print the search results

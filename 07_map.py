@@ -11,5 +11,6 @@ map_result = app.map_url(
     url='https://docs.crewai.com/en',
     include_subdomains=True,
 )
+
 print(map_result)
 print("Found", len(map_result.links), "pages")
