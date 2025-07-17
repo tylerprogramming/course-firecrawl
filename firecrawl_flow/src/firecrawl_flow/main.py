@@ -4,11 +4,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from typing import List
 from crewai.flow import Flow, listen, start
 from firecrawl import FirecrawlApp, ScrapeOptions
 from crews.summary_crew.summary_crew import SummaryCrew
-from .models import Summary, SearchResult, FireCrawlState
+from .models import SearchResult, FireCrawlState
 from .utils.file_operations import save_search_results_to_markdown
 
 app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
