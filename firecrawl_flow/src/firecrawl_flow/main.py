@@ -6,7 +6,7 @@ load_dotenv()
 
 from crewai.flow import Flow, listen, start
 from firecrawl import FirecrawlApp, ScrapeOptions
-from crews.summary_crew.summary_crew import SummaryCrew
+from .crews.summary_crew.summary_crew import SummaryCrew
 from .models import SearchResult, FireCrawlState
 from .utils.file_operations import save_search_results_to_markdown
 
