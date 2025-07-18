@@ -19,7 +19,6 @@ This repository contains a comprehensive collection of FireCrawl examples, from 
     - [09. Async Data Extraction (`09_extract_async.py`)](#09-async-data-extraction-09_extract_asyncpy)
     - [10. Web Search (`10_search.py`)](#10-web-search-10_searchpy)
     - [11. Agent-Based Scraping (`11_fire_agent.py`)](#11-agent-based-scraping-11_fire_agentpy)
-    - [12. Advanced Agent (`12_agent.py`)](#12-advanced-agent-12_agentpy)
   - [🤖 Advanced Flow Project (`firecrawl_flow/`)](#-advanced-flow-project-firecrawl_flow)
     - [Features](#features)
     - [Architecture](#architecture)
