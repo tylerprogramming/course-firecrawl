@@ -8,7 +8,7 @@ This repository contains a comprehensive collection of FireCrawl examples, from 
   - [📚 Table of Contents](#-table-of-contents)
   - [🚀 Quick Start](#-quick-start)
   - [📖 Basic Examples (01-12)](#-basic-examples-01-12)
-    - [01. Synchronous Scraper (`01_synch_scraper.py`)](#01-synchronous-scraper-01_synch_scraperpy)
+    - [01. Synchronous Scraper (`01_sync_scraper.py`)](#01-synchronous-scraper-01_sync_scraperpy)
     - [02. Asynchronous Scraper (`02_async_scraper.py`)](#02-asynchronous-scraper-02_async_scraperpy)
     - [03. Scraping with Parameters (`03_scrape_with_params.py`)](#03-scraping-with-parameters-03_scrape_with_paramspy)
     - [04. Basic Crawling (`04_crawl.py`)](#04-basic-crawling-04_crawlpy)
@@ -45,14 +45,14 @@ This repository contains a comprehensive collection of FireCrawl examples, from 
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
-3. **Configure API key**:
-   ```bash
-   cp .env.example .env
-   # Add your FIRECRAWL_API_KEY to .env
+3. **Configure API keys**: create a `.env` file in the repo root (there is no `.env.example`):
+   ```env
+   FIRECRAWL_API_KEY=fc-your-key-here
+   OPENAI_API_KEY=your-openai-key-here  # only needed for 08_extract.py and firecrawl_flow
    ```
 4. **Run basic example**:
    ```bash
-   python 01_synch_scraper.py
+   python 01_sync_scraper.py
    ```
 5. **Try the advanced flow**:
    ```bash
@@ -62,7 +62,7 @@ This repository contains a comprehensive collection of FireCrawl examples, from 
 
 ## 📖 Basic Examples (01-12)
 
-### 01. Synchronous Scraper (`01_synch_scraper.py`)
+### 01. Synchronous Scraper (`01_sync_scraper.py`)
 **Purpose**: Basic website scraping with FireCrawl  
 **Features**:
 - Simple synchronous scraping
@@ -192,8 +192,7 @@ This repository contains a comprehensive collection of FireCrawl examples, from 
 ---
 
 ### 12. Advanced Agent (`12_agent.py`)
-**Purpose**: (Empty file - placeholder for future advanced agent features)  
-**Status**: Template for custom agent implementations
+**Status**: Not included in this repository. It was planned as an empty placeholder and was never committed.
 
 ---
 
@@ -276,6 +275,8 @@ The system generates a comprehensive markdown report (`search_results.md`) with:
 ## 🛠️ Utility Scripts
 
 ### LLMs Status Checker (`get_llms_status.py`)
+> **Note:** `get_llms_status.py` is not included in this repository. `06_llmstext.py` calls `generate_llms_text`, which waits for the job and returns the result, so you don't need it to run the examples.
+
 **Purpose**: Monitor and retrieve LLMs.txt generation status  
 **Features**:
 - Status monitoring for LLMs.txt generation
@@ -305,7 +306,8 @@ The system generates a comprehensive markdown report (`search_results.md`) with:
 
 ## 📋 Prerequisites
 
-- Python 3.10+ (but <3.13 for CrewAI compatibility)
+- Python 3.10, 3.11 or 3.12 (`firecrawl_flow` requires <3.13)
+- `firecrawl-py` 2.x (pinned in `requirements.txt`). The examples use the v1 `FirecrawlApp` API (`scrape_url`, `crawl_url`, `firecrawl.firecrawl.AgentOptions`); firecrawl-py 3.0 replaced it with the v2 client, so a plain `pip install firecrawl-py` breaks `11_fire_agent.py`.
 - FireCrawl API key ([Get one here](https://firecrawl.dev))
 - OpenAI API key (for AI analysis features)
 
@@ -324,7 +326,7 @@ The system generates a comprehensive markdown report (`search_results.md`) with:
 **Basic Examples (Sequential Learning)**:
 ```bash
 # Start with basics
-python 01_synch_scraper.py
+python 01_sync_scraper.py
 
 # Progress through features
 python 02_async_scraper.py
@@ -340,7 +342,7 @@ crewai run
 
 ## 📈 Learning Path
 
-1. **🎯 Beginner**: Start with `01_synch_scraper.py` → `04_crawl.py`
+1. **🎯 Beginner**: Start with `01_sync_scraper.py` → `04_crawl.py`
 2. **🚀 Intermediate**: Try `08_extract.py` → `10_search.py`
 3. **🧠 Advanced**: Explore `11_fire_agent.py` → `firecrawl_flow/`
 4. **🎓 Expert**: Build your own flows using the advanced project as a template
