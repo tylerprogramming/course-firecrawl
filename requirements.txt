@@ -1,2 +1,9 @@
 crewai
 crewai-tools
+# The examples use the FirecrawlApp v1 API (scrape_url, crawl_url, ScrapeOptions,
+# firecrawl.firecrawl.AgentOptions). firecrawl-py 3.x moved to the v2 client and
+# removed firecrawl/firecrawl.py, so stay on 2.x.
+firecrawl-py>=2.16,<3
+openai
+pydantic
+python-dotenv
