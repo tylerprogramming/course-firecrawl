@@ -4,8 +4,9 @@ uvicorn[standard]==0.24.0
 pydantic==2.5.0
 pydantic-settings==2.1.0
 
-# FireCrawl
-firecrawl-py==0.0.18
+# FireCrawl (2.x: the service uses FirecrawlApp v1 methods and ScrapeOptions,
+# which 0.0.18 does not have and 3.x replaced with the v2 client)
+firecrawl-py==2.16.5
 
 # Environment and configuration
 python-dotenv==1.0.0
