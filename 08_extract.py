@@ -28,7 +28,8 @@ results = app.extract(
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 completion = client.chat.completions.create(
-  model="gpt-4.1",
+  # gpt-4.1 is deprecated (snapshot removed 2027-01-14); gpt-6-luna is OpenAI's replacement
+  model="gpt-6-luna",
   messages=[
     {"role": "developer", "content": "You are a helpful assistant."},
     {"role": "user", "content": f"I need you to extract the information and give this into an ordered summary of that information as markdown.  It should find coding examples and all information.  Here is the information: {results}"}

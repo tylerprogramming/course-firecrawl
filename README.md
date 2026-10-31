@@ -151,6 +151,8 @@ This repository contains a comprehensive collection of FireCrawl examples, from 
 - Schema-based structured output
 - Company information extraction
 
+The extracted data is summarized to `summary.md` by `gpt-6-luna`. The video used `gpt-4.1`, which OpenAI deprecated; its snapshot is removed from the API on 2027-01-14 ([OpenAI deprecations](https://developers.openai.com/api/docs/deprecations)).
+
 **Use Case**: Competitive analysis and market research
 
 ---
