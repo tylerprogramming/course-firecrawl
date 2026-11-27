@@ -43,7 +43,7 @@ fastapi_scraper/
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.10+
 - FireCrawl API key (get one at [firecrawl.dev](https://firecrawl.dev))
 
 ### Setup
