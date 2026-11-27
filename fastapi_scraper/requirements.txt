@@ -1,5 +1,9 @@
 # FastAPI and core dependencies
-fastapi==0.104.1
+fastapi==0.162.5
+# Floors for FastAPI's own dependencies: older starlette and anyio
+# releases carry HIGH/CRITICAL advisories
+starlette>=1.3.1
+anyio>=4.14.2
 uvicorn[standard]==0.24.0
 pydantic==2.14.4
 pydantic-settings==2.15.0
